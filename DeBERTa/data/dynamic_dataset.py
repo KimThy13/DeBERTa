@@ -50,7 +50,11 @@ class DynamicDataset(Dataset):
     else:
       ext_params = None
     idx += self.index_offset
-    seed = idx
+    try:
+      seed = int(idx)
+    except Exception as e:
+      logger.warning(f"Invalid seed: {idx} - using default seed 42. Error: {e}")
+      seed = 42
     rng = random.Random(seed)
     # get seq length
     example_idx = self.shuffle_idx[idx%self.dataset_size]%self.ds_len
