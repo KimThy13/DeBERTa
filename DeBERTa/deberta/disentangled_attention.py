@@ -148,8 +148,8 @@ class DisentangledSelfAttention(torch.nn.Module):
             k,v = [linear(qkvw[i], qkvb[i], hidden_states) for i in range(1,3)]
             query_layer, key_layer, value_layer = [self.transpose_for_scores(x) for x in [q,k,v]]
 
-        query_layer += self.transpose_for_scores(self.q_bias.unsqueeze(0).unsqueeze(0))
-        value_layer += self.transpose_for_scores(self.v_bias.unsqueeze(0).unsqueeze(0))
+        query_layer = query_layer + self.transpose_for_scores(self.q_bias.unsqueeze(0).unsqueeze(0))
+        value_layer = value_layer + self.transpose_for_scores(self.v_bias.unsqueeze(0).unsqueeze(0))
 
         rel_att = None
         # Take the dot product between "query" and "key" to get the raw attention scores.
