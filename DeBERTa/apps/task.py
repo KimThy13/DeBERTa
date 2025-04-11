@@ -6,7 +6,8 @@
 import os
 import csv
 import copy
-from collections import OrderedDict,defaultdict,Sequence,Counter
+from collections import OrderedDict,defaultdict,Counter
+from collections.abc import Sequence
 import numpy as np
 import DeBERTa.utils as utils
 from DeBERTa.utils import xtqdm as tqdm
