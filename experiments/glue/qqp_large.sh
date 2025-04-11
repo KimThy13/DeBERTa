@@ -18,4 +18,4 @@ init=large
 tag=Large
 Task=QQP
 setup_glue_data $Task
-../utils/train.sh -i $init --config config.json -t $Task --data $cache_dir/glue_tasks/$Task --tag $tag -o /tmp/ttonly/$tag/$task -- --num_train_epochs 8 --accumulative_update 1 --warmup 500 --learning_rate 1e-5 --train_batch_size 32 --max_seq_length 512 --dump 5000 --cls_drop 0.15 --fp16 True
+../utils/train.sh -i $init --config config.json -t $Task --data $cache_dir/glue_tasks/$Task --tag $tag -o /tmp/ttonly/$tag/$task -- --num_train_epochs 4 --accumulative_update 1 --warmup 500 --learning_rate 1e-5 --train_batch_size 4 --max_seq_length 512 --dump 5000 --cls_drop 0.15 --fp16 True
